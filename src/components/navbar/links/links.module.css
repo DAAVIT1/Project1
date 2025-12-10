@@ -1,0 +1,86 @@
+.links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logout {
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.menuButton,
+.mobileLinks {
+  display: none;
+}
+
+.backdrop {
+  display: none;
+}
+
+.mobileLinks {
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.logoutForm {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .links {
+    display: none;
+  }
+
+  .menuButton {
+    display: block;
+    cursor: pointer;
+  }
+
+  .mobileLinks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 78%;
+    max-width: 340px;
+    border-radius: 12px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: var(--bgSoft);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 18px;
+    padding: 32px 22px 48px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.28);
+    z-index: 10;
+    transform: translateX(0);
+    animation: slideIn 0.3s ease forwards;
+  }
+
+  .logout {
+    width: 100%;
+    text-align: center;
+  }
+
+  .backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.35));
+    backdrop-filter: blur(4px);
+    z-index: 5;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
